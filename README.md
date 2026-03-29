@@ -2,9 +2,10 @@
 FrostOrthoをご購入いただきありがとうございます！  
 ガイドをご一読いただき、使用を開始してください。気に入っていただけましたら、X等で「#FrostOrtho」で宣伝いただけると大喜びします。  
 
-ご質問等ございましたら、muinoのXやBoothまでご連絡ください。
+ご質問等ございましたら、muinoのXやdiscord、BoothのDMにてご連絡ください。サポートサーバーではご購入者様向けのお知らせをします。
 - X：[@mui__key](https://x.com/mui__key)
 - Booth：[muino](https://muino.booth.pm/)
+- Discordサポートサーバー：[FrostOrthoSupport](https://discord.gg/swPe2Q3npJ)
 
 ## ユーザーガイド
 - 組立済み品をご購入の方  
