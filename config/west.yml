@@ -21,7 +21,7 @@ manifest:
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: v0.3.0
+      revision: v0.3-branch
     # DYA Studio モジュール
     - name: zmk-module-ble-management
       remote: cormoran
