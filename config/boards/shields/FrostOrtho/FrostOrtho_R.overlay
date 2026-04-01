@@ -19,16 +19,17 @@
         ;
 };
 
-// AMLから離脱しないキー
+// AMLから離脱しないキー（moNa2式：左手クリック）
 &zip_temp_layer {
     require-prior-idle-ms = <200>;
     excluded-positions = <
-        16 // J 左クリック
-        17 // K 左クリック
-        18 // L 左クリック
-        20 // Z Shift
-        30 // Control
-        32 // Alt
+        14 // G 左クリック (MB1)
+        24 // B 右クリック (MB2)
+        20 // Z 左Shift (mod-tap)
+        30 // 左Shift (親指)
+        31 // 左Ctrl (親指)
+        32 // 左Alt / Layer 3 (親指)
+        33 // 左Command (親指)
     >;
 };
 
@@ -60,7 +61,7 @@
         // input-processors = <&mouse_runtime_input_processor>;
         input-processors = <
             &mouse_runtime_input_processor
-            &zip_temp_layer 6 100000 // AMLレイヤー、タイムアウト時間
+            &zip_temp_layer 5 100000 // AMLレイヤー（MOUSE=5）、タイムアウト時間
             &zip_xy_scaler 2 3 // カーソル移動量2/3倍
             &zip_xy_transform INPUT_TRANSFORM_Y_INVERT // カーソルの移動方向調整
         >;
@@ -69,7 +70,7 @@
 
 &trackball_listener {
     scroller_y {
-        layers = <5>; // 縦スクロールレイヤー
+        layers = <6>; // 縦スクロールレイヤー（SCROLL=6）
         input-processors = <
             // &scroll_runtime_input_processor
             &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT) // スクロール方向調整
@@ -78,15 +79,7 @@
             &zip_scroll_y_scaler 2 3 // Y軸スクロール量2/3倍
         >;
     };
-    scroller_x {
-        layers = <7>; // 横スクロールレイヤー
-        input-processors = <
-            &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT) // スクロール方向調整
-            &zip_xy_to_scroll_mapper
-            &zip_scroll_x_scaler 2 3 // X軸スクロール量2/3倍
-            &zip_scroll_y_scaler 0 3 // Y軸スクロール量0/3倍
-        >;
-    };
+    // 横スクロールは削除（moNa2スタイル：縦スクロールのみ）
 };
 
 &pinctrl {
@@ -122,8 +115,8 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        // automouse-layer = <6>;
-        // scroll-layers = <5>;
+        // automouse-layer = <5>;  // MOUSE
+        // scroll-layers = <6>;   // SCROLL
     };
 };
 
