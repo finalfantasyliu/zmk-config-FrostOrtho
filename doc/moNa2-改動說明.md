@@ -334,9 +334,17 @@ snippet: studio-rpc-usb-uart           # 啟用 DYA Studio USB 支援
 - 按下後 LED 會閃對應電量的顏色
 
 **8. Hold-Tap 參數最佳化**
-- 加入 `require-prior-idle-ms = <150>` 給 `&mt` 和 `&lt`
-- 效果：快速打字時（150ms 內連續按鍵）所有 hold-tap 鍵都直接判定為 tap
-- 解決原版打字時意外觸發層切換的問題
+- `&mt`：保留 `require-prior-idle-ms = <150>`（防打字時誤觸 Shift）
+- `&lt`：**移除** `require-prior-idle-ms`（讓切層隨時響應，不受打字速度影響）
+- `&lt` 的 `quick-tap-ms` 從 300 降到 200（減少連打判定窗口）
+- [ZMK Hold-Tap 文件](https://zmk.dev/docs/keymaps/behaviors/hold-tap)
+
+> **為什麼分開設定？** `&mt` 管修飾鍵（Shift on Z），打字時常碰到需要防誤觸。`&lt` 管切層（Backspace→SYM），是主動操作不需要門檻。
+
+**9. Combo 防重複觸發**
+- 所有 combo（Tab/Enter/Input Switch）加入 `slow-release`：兩鍵都放開後才結束，防止放開時機不同導致重複
+- Input Switch combo 改用 `&input_tap` macro：不管按多久只送一次 Ctrl+Space，防止 macOS 循環切換輸入法
+- [ZMK Combo 文件](https://zmk.dev/docs/keymaps/combos)
 
 #### FrostOrtho vs moNa2 的物理差異適配
 
