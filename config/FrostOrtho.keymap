@@ -49,6 +49,7 @@
         input_switch {
             bindings = <&kp LC(SPACE)>;
             key-positions = <11 12>;  // S+D = 切換輸入法（Ctrl+Space）
+            slow-release;             // 兩鍵都放開才結束，防止重複觸發
         };
     };
 
