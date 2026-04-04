@@ -25,7 +25,7 @@
 };
 
 // AML 點擊時延長自動滑鼠層超時
-&mkp_input_listener { input-processors = <&zip_temp_layer MOUSE 10000>; };
+&mkp_input_listener { input-processors = <&zip_temp_layer MOUSE 250>; };
 
 / {
     combos {
